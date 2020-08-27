@@ -30,6 +30,9 @@ public class AddressBook {
                     help.deleteRecord();
                     break;
                 case 5 :
+                    help.sortRecords();
+                    break;
+                case 6 :
                     i=1;
                     break;
                 default :
