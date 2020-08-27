@@ -84,6 +84,15 @@ public class Person
     {
         this.zip = zip;
     }
+    public static Comparator<Person> firstNameSorting = new Comparator<Person>() {
+        public int compare(Person p1, Person p2)
+        {
+            String fname1 = p1.getFname();
+            String fname2 = p2.getFname();
+            // ascending order
+            return fname1.compareTo(fname2);
+        }
+    };
     public String toString() {
         return "Person{" +
                 "First Name='" + fname + '\'' +
@@ -97,3 +106,4 @@ public class Person
     }
 
 }
+

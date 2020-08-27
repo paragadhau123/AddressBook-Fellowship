@@ -123,8 +123,14 @@
               id = InputUtil.getIntValue();
                PERSON.remove(id);
           }//end of delete record
+
+           public void sortRecords()
+         {
+               Sort.sortByName(PERSON);
+         }
+
            public boolean checkExists(String fname)
-        {
+          {
              int flag=0;
              for (Person p: PERSON)
             {
