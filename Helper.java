@@ -1,7 +1,7 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
+//import java.util.Arrays;
+//import java.util.List;
+//import java.util.ArrayList;
+  import java.util.*;
  public class Helper {
 
    List<Person> PERSON = new ArrayList<Person>();
@@ -9,10 +9,19 @@ import java.util.ArrayList;
 
     public void addRecord()
     {
-        final String fname, lname, address, city, state, phone,zip;
-
+        int i=0;
+        String fname = null;
+        final String lname, address, city, state, phone,zip;
+        while(i==0){
         System.out.print("Enter First Name : ");
         fname = InputUtil.getStringValue();
+            if (checkExists(fname)) {
+                System.out.println("Person Name Already Exists!!\nPlease enter different name...");
+            }
+            else {
+                i=1;
+            }
+        }
         System.out.print("Enter Last Name : ");
         lname = InputUtil.getStringValue();
         System.out.print("Enter Phone Number : ");
@@ -114,5 +123,22 @@ import java.util.ArrayList;
               id = InputUtil.getIntValue();
                PERSON.remove(id);
           }//end of delete record
-      }
+           public boolean checkExists(String fname)
+        {
+             int flag=0;
+             for (Person p: PERSON)
+            {
+                 if (p.getFname().equals(fname))
+                {
+                    flag=1;
+                    break;
+                }
+            }
+           if (flag==1)
+          {
+               return true;
+          }
+           return false;
+       }
+   }
 
