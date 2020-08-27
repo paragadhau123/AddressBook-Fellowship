@@ -32,9 +32,17 @@ import java.util.ArrayList;
 
         public void displayRecord()
     {
-        for(Person person: PERSON)
+      if (PERSON.isEmpty())
         {
-            System.out.println(person);
+            //System.out.println(person);
+            System.out.println("No Records!!!");
+        }
+
+        else {
+           for(Person person: PERSON)
+          {
+             System.out.println(person);
+          }
         }
 
     } // END OF displayRecord
@@ -61,7 +69,7 @@ import java.util.ArrayList;
             choice = InputUtil.getIntValue();
             switch (choice) {
                 case 1:
-                    System.out.print("Enter new Street : ");
+                    System.out.print("Enter new Address : ");
                     address = InputUtil.getStringValue();
                     PERSON.get(id).setAddress(address);
                     break;
