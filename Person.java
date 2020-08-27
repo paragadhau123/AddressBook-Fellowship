@@ -90,7 +90,7 @@ public class Person
             String fname1 = p1.getFname();
             String fname2 = p2.getFname();
             // ascending order
-            return fname1.compareTo(fname2);
+            return fname1.compareToIgnoreCase(fname2);
         }
     };
     // Sort By City
@@ -101,7 +101,7 @@ public class Person
             String city1 = p1.getCity();
             String city2 = p2.getCity();
             // ascending order
-            return city1.compareTo(city2);
+            return city1.compareToIgnoreCase(city2);
         }
     };
     // Sort By State
@@ -112,7 +112,7 @@ public class Person
             String state1 = p1.getState();
             String state2 = p2.getState();
             // ascending order
-            return state1.compareTo(state2);
+            return state1.compareToIgnoreCase(state2);
         }
     };
     // Sort By Zip
@@ -123,7 +123,7 @@ public class Person
             String zip1 = p1.getZip();
             String zip2 = p2.getZip();
             // ascending order
-            return zip1.compareTo(zip2);
+            return zip1.compareToIgnoreCase(zip2);
         }
     };
     public String toString() {
