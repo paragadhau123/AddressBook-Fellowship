@@ -10,7 +10,8 @@ public class AddressBook {
             System.out.println("1: Add New Person      ");
             System.out.println("2: Display Records     ");
             System.out.println("3: Edit Records        ");
-            System.out.println("4: Exit		       \n");
+            System.out.println("4: Delete Records      ");
+            System.out.println("5: Exit		       \n");
             System.out.println("--- Enter Your Choice ---");
             choice = InputUtil.getIntValue();
             switch(choice)
@@ -25,6 +26,9 @@ public class AddressBook {
                     help.editRecord();
                     break;
                 case 4 :
+                    help.deleteRecord();
+                    break;
+                case 5 :
                     i=1;
                     break;
                 default :
