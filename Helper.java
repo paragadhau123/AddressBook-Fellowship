@@ -1,8 +1,12 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
 
-public class Helper {
+ public class Helper {
+
+   List<Person> p = new ArrayList<Person>();
     //	ADD METHOD
+
     public void addRecord()
     {
         final String fname, lname, address, city, state, phone,zip;
@@ -22,9 +26,17 @@ public class Helper {
         System.out.print("Enter state : ");
         state = InputUtil.getStringValue();
 
-        List<Person> person = Arrays.asList(
-                new Person(fname,lname,address,city,state,phone,zip)
-        );
+        p.add(new Person(fname,lname,address,city,state,phone,zip));
 
     } // END of addRecord()
+
+        public void displayRecord()
+    {
+        for(Person p1: p)
+        {
+            System.out.println(p1);
+        }
+
+    } // END OF displayRecord
 }
+
