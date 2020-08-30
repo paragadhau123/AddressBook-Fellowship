@@ -4,8 +4,9 @@ import com.bridgelabz.model.Person;
 import com.bridgelabz.utility.InputUtil;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
-
+import java.util.Dictionary;
 public class Helper {
 
     List<Person> PERSON = new ArrayList<Person>();
@@ -147,6 +148,35 @@ public class Helper {
         }
     }
 
+    //  This Method will View Person by City and State
+    public void viewByCityAndState() {
+        Dictionary<String, String> cityDict = createCityDict();
+        Dictionary<String, String> stateDict = createStateDict();
+        final String city, state;
+        System.out.println("Enter City");
+        city = InputUtil.getStringValue();
+        System.out.println("Enter State");
+        state = InputUtil.getStringValue();
+        com.bridgelabz.service.Search.searchByCityAndState(cityDict, stateDict);
+    } //End of viewByCityAndState() Method
+
+    //    Create City Dictionary
+    public Dictionary<String, String> createCityDict() {
+        Dictionary<String, String> cityDict = new Hashtable<String, String>();
+        for (Person person : PERSON) {
+            cityDict.put(person.getFname(), person.getCity());
+        }
+        return cityDict;
+    }
+
+    //    Create State Dictionary
+    public Dictionary<String, String> createStateDict() {
+        Dictionary<String, String> stateDict = new Hashtable<String, String>();
+        for (Person person : PERSON) {
+            stateDict.put(person.getFname(), person.getState());
+        }
+        return stateDict;
+    }
 
     public boolean checkExists(String fname) {
         int flag = 0;
