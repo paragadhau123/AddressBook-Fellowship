@@ -1,10 +1,15 @@
+package com.bridgelabz.addressbook;
+
+import com.bridgelabz.service.Helper;
+import com.bridgelabz.utility.InputUtil;
+
 public class AddressBook {
     public static void main(String[] args) {
         System.out.println("Welcome To Address Book");
-        int choice,i=0;
+        int choice, i = 0;
+
         final Helper help = new Helper();
-        while(i==0)
-        {
+        while (i == 0) {
             System.out.println("--- Address Book Management ---\n");
             System.out.println("\t--MENU--");
             System.out.println("1: Add New Person      ");
@@ -15,28 +20,14 @@ public class AddressBook {
             System.out.println("6: Exit                \n");
             System.out.println("--- Enter Your Choice ---");
             choice = InputUtil.getIntValue();
-            switch(choice)
-            {
-                case 1 :
-                    help.addRecord();
-                    break;
-                case 2 :
-                    help.displayRecord();
-                    break;
-                case 3 :
-                    help.editRecord();
-                    break;
-                case 4 :
-                    help.deleteRecord();
-                    break;
-                case 5 :
-                    help.sortRecords();
-                    break;
-                case 6 :
-                    i=1;
-                    break;
-                default :
-                    System.out.println("Please Enter Valid Option!!!");
+            switch (choice) {
+                case 1 -> help.addRecord();
+                case 2 -> help.displayRecord();
+                case 3 -> help.editRecord();
+                case 4 -> help.deleteRecord();
+                case 5 -> help.sortRecords();
+                case 6 -> i = 1;
+                default -> System.out.println("Please Enter Valid Option!!!");
             }
         }
     }

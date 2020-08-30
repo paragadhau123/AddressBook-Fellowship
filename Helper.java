@@ -1,25 +1,27 @@
-//import java.util.Arrays;
-//import java.util.List;
-//import java.util.ArrayList;
-  import java.util.*;
- public class Helper {
+package com.bridgelabz.service;
 
-   List<Person> PERSON = new ArrayList<Person>();
+import com.bridgelabz.model.Person;
+import com.bridgelabz.utility.InputUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Helper {
+
+    List<Person> PERSON = new ArrayList<Person>();
     //	ADD METHOD
 
-    public void addRecord()
-    {
-        int i=0;
+    public void addRecord() {
+        int i = 0;
         String fname = null;
-        final String lname, address, city, state, phone,zip;
-        while(i==0){
-        System.out.print("Enter First Name : ");
-        fname = InputUtil.getStringValue();
+        final String lname, address, city, state, phone, zip;
+        while (i == 0) {
+            System.out.print("Enter First Name : ");
+            fname = InputUtil.getStringValue();
             if (checkExists(fname)) {
                 System.out.println("Person Name Already Exists!!\nPlease enter different name...");
-            }
-            else {
-                i=1;
+            } else {
+                i = 1;
             }
         }
         System.out.print("Enter Last Name : ");
@@ -35,39 +37,33 @@
         System.out.print("Enter state : ");
         state = InputUtil.getStringValue();
 
-        PERSON.add(new Person(fname,lname,address,city,state,phone,zip));
+        PERSON.add(new Person(fname, lname, address, city, state, phone, zip));
 
     } // END of addRecord()
 
-        public void displayRecord()
-    {
-      if (PERSON.isEmpty())
-        {
+    public void displayRecord() {
+        if (PERSON.isEmpty()) {
             //System.out.println(person);
             System.out.println("No Records!!!");
-        }
-
-        else {
-           for(Person person: PERSON)
-          {
-             System.out.println(person);
-          }
+        } else {
+            for (Person person : PERSON) {
+                System.out.println(person);
+            }
         }
 
     } // END OF displayRecord
-     //	EDIT METHOD
-    public void editRecord()
-    {
-        int id,choice = 0, i=0;
-        String fname,lname,address,city,state,phone,zip;
-        for(Person person: PERSON)
-        {
-            System.out.println("ID: #"+PERSON.indexOf(person)+" : "+person);
+
+    //	EDIT METHOD
+    public void editRecord() {
+        int id, choice = 0, i = 0;
+        String fname, lname, address, city, state, phone, zip;
+        for (Person person : PERSON) {
+            System.out.println("ID: #" + PERSON.indexOf(person) + " : " + person);
         }
         System.out.print("\nEnter #ID to Edit Contact : ");
         id = InputUtil.getIntValue();
         System.out.println(PERSON.get(id));
-        while(i==0) {
+        while (i == 0) {
             System.out.println("What You Want to edit...\n"
                     + "\t1: Address\n"
                     + "\t2: city\n"
@@ -103,7 +99,7 @@
                     PERSON.get(id).setZip(zip);
                     break;
                 case 6:
-                    i=1;
+                    i = 1;
                     break;
                 default:
                     System.out.println("Please Enter Valid Option");
@@ -111,43 +107,40 @@
             System.out.println(PERSON.get(id));
         }
     } //end of edit() method
-      //	DELETE METHOD
-           public void deleteRecord()
-         {
-              int id;
-              for(Person p: PERSON)
-               {
-                   System.out.println("ID: #"+PERSON.indexOf(p)+" : "+p);
-               }
-              System.out.print("\nEnter #ID to delete Contact : ");
-              id = InputUtil.getIntValue();
-               PERSON.remove(id);
-          }//end of delete record
 
-           public void sortRecords()
-         {
-               System.out.println("Sort By...\n"
+    //	DELETE METHOD
+    public void deleteRecord() {
+        int id;
+        for (Person p : PERSON) {
+            System.out.println("ID: #" + PERSON.indexOf(p) + " : " + p);
+        }
+        System.out.print("\nEnter #ID to delete Contact : ");
+        id = InputUtil.getIntValue();
+        PERSON.remove(id);
+    }//end of delete record
+
+    public void sortRecords() {
+        System.out.println("Sort By...\n"
                 + "1: First Name\n"
                 + "2: City\n"
                 + "3: State\n"
                 + "4: Zip Code\n"
                 + "5: Back");
         int choice = InputUtil.getIntValue();
-        switch (choice)
-        {
+        switch (choice) {
             case 1:
-                Sort.sortByName(PERSON);
+                com.bridgelabz.service.Sort.sortByName(PERSON);
                 break;
-            case 2 :
-                Sort.sortByZip(PERSON);
+            case 2:
+                com.bridgelabz.service.Sort.sortByZip(PERSON);
                 break;
-            case 3 :
-                Sort.sortByState(PERSON);
+            case 3:
+                com.bridgelabz.service.Sort.sortByState(PERSON);
                 break;
-            case 4 :
-                Sort.sortByZip(PERSON);
+            case 4:
+                com.bridgelabz.service.Sort.sortByZip(PERSON);
                 break;
-            case 5 :
+            case 5:
                 return;
             default:
                 System.out.println("Please Enter Valid Option...");
@@ -155,22 +148,18 @@
     }
 
 
-           public boolean checkExists(String fname)
-          {
-             int flag=0;
-             for (Person p: PERSON)
-            {
-                 if (p.getFname().equals(fname))
-                {
-                    flag=1;
-                    break;
-                }
+    public boolean checkExists(String fname) {
+        int flag = 0;
+        for (Person p : PERSON) {
+            if (p.getFname().equals(fname)) {
+                flag = 1;
+                break;
             }
-           if (flag==1)
-          {
-               return true;
-          }
-           return false;
-       }
-   }
+        }
+        if (flag == 1) {
+            return true;
+        }
+        return false;
+    }
+}
 
