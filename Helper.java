@@ -3,10 +3,8 @@ package com.bridgelabz.service;
 import com.bridgelabz.model.Person;
 import com.bridgelabz.utility.InputUtil;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Dictionary;
+import java.util.*;
+
 public class Helper {
 
     List<Person> PERSON = new ArrayList<Person>();
@@ -150,19 +148,19 @@ public class Helper {
 
     //  This Method will View Person by City and State
     public void viewByCityAndState() {
-        Dictionary<String, String> cityDict = createCityDict();
-        Dictionary<String, String> stateDict = createStateDict();
+        Map<String, String> cityDict = (Map<String, String>) createCityDict();
+        Map<String ,String> stateDict = createStateDict();
         final String city, state;
         System.out.println("Enter City");
         city = InputUtil.getStringValue();
         System.out.println("Enter State");
         state = InputUtil.getStringValue();
-        com.bridgelabz.service.Search.searchByCityAndState(cityDict, stateDict);
+        com.bridgelabz.service.Search.searchByCityAndState(cityDict,stateDict,city,state);
     } //End of viewByCityAndState() Method
 
     //    Create City Dictionary
-    public Dictionary<String, String> createCityDict() {
-        Dictionary<String, String> cityDict = new Hashtable<String, String>();
+    public Map<String, String> createCityDict() {
+        Map<String,String> cityDict = new Hashtable<String ,String>();
         for (Person person : PERSON) {
             cityDict.put(person.getFname(), person.getCity());
         }
@@ -170,8 +168,8 @@ public class Helper {
     }
 
     //    Create State Dictionary
-    public Dictionary<String, String> createStateDict() {
-        Dictionary<String, String> stateDict = new Hashtable<String, String>();
+    public Map<String,String> createStateDict(){
+        Map<String, String> stateDict = new Hashtable<String, String>();
         for (Person person : PERSON) {
             stateDict.put(person.getFname(), person.getState());
         }
